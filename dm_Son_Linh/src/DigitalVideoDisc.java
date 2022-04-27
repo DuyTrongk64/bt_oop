@@ -72,9 +72,10 @@ public class DigitalVideoDisc {
     public static class  Order{
         public static final int MAX_NUMBERS_ORDERED = 10;
         private DigitalVideoDisc itemOordered[] = new DigitalVideoDisc[MAX_NUMBERS_ORDERED];
+        int count=0;
         int qtyOrdered()
         {
-            int count=0;
+
             for(int i=0;i<10;i++)
             {
                 if(itemOordered[i].length!=0)
@@ -88,28 +89,23 @@ public class DigitalVideoDisc {
 
         void addDigitalVideoDisc(DigitalVideoDisc disc)
         {
-            int count = qtyOrdered();
+
             if(count==10){
                 System.out.println("So Luong don hang da day.");
             }
             else {
-                Scanner sc = new Scanner(System.in);
-                System.out.println("nhap title");
-                disc.title = sc.next();
-                System.out.println("nhap category");
-                disc.category = sc.next();
-                System.out.println("nhap director");
-                disc.director = sc.next();
-                System.out.println("nhap length");
-                disc.length = sc.nextInt();
-                System.out.println("nhap cost");
-                disc.cost = sc.nextFloat();
-                itemOordered[count+1]= disc;
+                itemOordered[count]=disc;
+                itemOordered[count].setCost(disc.cost);
+                itemOordered[count].setTitle(disc.title);
+                itemOordered[count].setCategory(disc.category);
+                itemOordered[count].setDirector(disc.director);
+                itemOordered[count].setLength(disc.length);
+                count++;
             }
         }
 
         float totalCost(){
-            int count = qtyOrdered();
+
             float sum=0;
             for(int i=0;i<count;i++)
             {
