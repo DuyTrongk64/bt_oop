@@ -1,3 +1,5 @@
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 public class DigitalVideoDisc {
     private  String title;
@@ -106,15 +108,41 @@ public class DigitalVideoDisc {
         void addDigitalVideoDisc(DigitalVideoDisc [] dvdList)
         {
             int count = qtyOrdered();
+
             if(count>=10)
             {
                 System.out.println("Danh sach da day.");
                 return;
             }
+            count++;
+            for(int i=0;i<(10-count);i++)
+            {
+                itemOordered[count]=dvdList[i];
+                itemOordered[count].setCost(dvdList[i].cost);
+                itemOordered[count].setTitle(dvdList[i].title);
+                itemOordered[count].setCategory(dvdList[i].category);
+                itemOordered[count].setDirector(dvdList[i].director);
+                itemOordered[count].setLength(dvdList[i].length);
+                count++;
+            }
 
-            
         }
 
+        void addDigitalVideoDisc(List<DigitalVideoDisc> list)
+        {
+            DigitalVideoDisc [] dvdlist = list.toArray(new DigitalVideoDisc[0]);
+            int count = qtyOrdered();
+            for(int i=0;i<10;i++)
+            {
+                itemOordered[count]=dvdlist[i];
+                itemOordered[count].setCost(dvdlist[i].cost);
+                itemOordered[count].setTitle(dvdlist[i].title);
+                itemOordered[count].setCategory(dvdlist[i].category);
+                itemOordered[count].setDirector(dvdlist[i].director);
+                itemOordered[count].setLength(dvdlist[i].length);
+                count++;
+            }
+        }
         float totalCost(){
             int count=qtyOrdered();
             float sum=0;
