@@ -46,6 +46,7 @@ public class DigitalVideoDisc {
         this.cost = cost;
     }
 
+
     public DigitalVideoDisc(String title){
         this.title = title;
     }
@@ -72,24 +73,22 @@ public class DigitalVideoDisc {
     public static class  Order{
         public static final int MAX_NUMBERS_ORDERED = 10;
         private DigitalVideoDisc itemOordered[] = new DigitalVideoDisc[MAX_NUMBERS_ORDERED];
-        int count=0;
+
         int qtyOrdered()
         {
-
+            int count =0;
             for(int i=0;i<10;i++)
             {
-                if(itemOordered[i].length!=0)
-                {
-                    count++;
-                }
+                if(itemOordered[i]!=null) count++;
+                else break;
             }
-            System.out.println("So DigitalVideoDiscs trong đơn đặt hàng la : "+count);
+            //System.out.println("So DigitalVideoDiscs trong đơn đặt hàng la : "+count);
             return count;
         }
 
         void addDigitalVideoDisc(DigitalVideoDisc disc)
         {
-
+            int count=qtyOrdered();
             if(count==10){
                 System.out.println("So Luong don hang da day.");
             }
@@ -104,8 +103,20 @@ public class DigitalVideoDisc {
             }
         }
 
-        float totalCost(){
+        void addDigitalVideoDisc(DigitalVideoDisc [] dvdList)
+        {
+            int count = qtyOrdered();
+            if(count>=10)
+            {
+                System.out.println("Danh sach da day.");
+                return;
+            }
 
+            
+        }
+
+        float totalCost(){
+            int count=qtyOrdered();
             float sum=0;
             for(int i=0;i<count;i++)
             {
