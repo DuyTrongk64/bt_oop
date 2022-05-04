@@ -31,11 +31,14 @@ public class Aims {
         DigitalVideoDisc d3 = new DigitalVideoDisc("Spiderman","drama","Den Houser",100,90);
         DigitalVideoDisc d4 = new DigitalVideoDisc("Hulk","action","Joan Lapotar",120,60);
         DigitalVideoDisc d5 = new DigitalVideoDisc("Silent Hill","horor","Koon De",95,95);
+        /*
         anOrder.addDigitalVideoDisc(d1);
         anOrder.addDigitalVideoDisc(d2);
         anOrder.addDigitalVideoDisc(d3);
         anOrder.addDigitalVideoDisc(d4);
         anOrder.addDigitalVideoDisc(d5);
+         */
+        //anOrder.addDigitalVideoDisc(d1,d2,d3,d4,d5); // số lượng đối số tùy ý
         System.out.print ("Total Cost is: ");
         System.out.println (anOrder.totalCost());
     }

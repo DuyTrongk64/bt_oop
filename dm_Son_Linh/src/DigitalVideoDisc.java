@@ -127,21 +127,36 @@ public class DigitalVideoDisc {
             }
 
         }
-
-        void addDigitalVideoDisc(List<DigitalVideoDisc> list)
+        /*
+        //số lượng đối số tùy ý
+        void addDigitalVideoDisc(DigitalVideoDisc... list) // tạo varargs
         {
-            DigitalVideoDisc [] dvdlist = list.toArray(new DigitalVideoDisc[0]);
-            int count = qtyOrdered();
-            for(int i=0;i<10;i++)
+
+            int count = qtyOrdered(); // đếm số phần tử trong mảng
+            int length = list.length; // lấy số tham số nhập vào
+            if(count+length>=10) // nếu tổng số phần tử nhập vào và tham số > 10 => báo lỗi
             {
-                itemOordered[count]=dvdlist[i];
-                itemOordered[count].setCost(dvdlist[i].cost);
-                itemOordered[count].setTitle(dvdlist[i].title);
-                itemOordered[count].setCategory(dvdlist[i].category);
-                itemOordered[count].setDirector(dvdlist[i].director);
-                itemOordered[count].setLength(dvdlist[i].length);
-                count++;
+                System.out.println("do dai chuoi nhap vao vuot qua so luong toi da");
+                return;
             }
+            else
+            {
+                for(int i=0;i<length;i++)
+                {   // thêm giá trị từ tham số nhập vào vào mảng itemOordered
+                    itemOordered[count]=list[i];
+                    itemOordered[count].setCost(list[i].cost);
+                    itemOordered[count].setTitle(list[i].title);
+                    itemOordered[count].setCategory(list[i].category);
+                    itemOordered[count].setDirector(list[i].director);
+                    itemOordered[count].setLength(list[i].length);
+                    count++;
+                }
+            }
+        }
+         */
+        void addDigitalVideoDisc (DigitalVideoDisc dvd1, DigitalVideoDisc dvd2)
+        {
+
         }
         float totalCost(){
             int count=qtyOrdered();
