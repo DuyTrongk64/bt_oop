@@ -1,3 +1,5 @@
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 public class DigitalVideoDisc {
     private  String title;
@@ -46,6 +48,7 @@ public class DigitalVideoDisc {
         this.cost = cost;
     }
 
+
     public DigitalVideoDisc(String title){
         this.title = title;
     }
@@ -72,44 +75,76 @@ public class DigitalVideoDisc {
     public static class  Order{
         public static final int MAX_NUMBERS_ORDERED = 10;
         private DigitalVideoDisc itemOordered[] = new DigitalVideoDisc[MAX_NUMBERS_ORDERED];
+
         int qtyOrdered()
         {
-            int count=0;
+            int count =0;
             for(int i=0;i<10;i++)
             {
-                if(itemOordered[i].length!=0)
-                {
-                    count++;
-                }
+                if(itemOordered[i]!=null) count++;
+                else break;
             }
-            System.out.println("So DigitalVideoDiscs trong đơn đặt hàng la : "+count);
+            //System.out.println("So DigitalVideoDiscs trong đơn đặt hàng la : "+count);
             return count;
         }
 
         void addDigitalVideoDisc(DigitalVideoDisc disc)
         {
-            int count = qtyOrdered();
+            int count=qtyOrdered();
             if(count==10){
                 System.out.println("So Luong don hang da day.");
             }
             else {
-                Scanner sc = new Scanner(System.in);
-                System.out.println("nhap title");
-                disc.title = sc.next();
-                System.out.println("nhap category");
-                disc.category = sc.next();
-                System.out.println("nhap director");
-                disc.director = sc.next();
-                System.out.println("nhap length");
-                disc.length = sc.nextInt();
-                System.out.println("nhap cost");
-                disc.cost = sc.nextFloat();
-                itemOordered[count+1]= disc;
+                itemOordered[count]=disc;
+                itemOordered[count].setCost(disc.cost);
+                itemOordered[count].setTitle(disc.title);
+                itemOordered[count].setCategory(disc.category);
+                itemOordered[count].setDirector(disc.director);
+                itemOordered[count].setLength(disc.length);
+                count++;
             }
         }
 
-        float totalCost(){
+        void addDigitalVideoDisc(DigitalVideoDisc [] dvdList)
+        {
             int count = qtyOrdered();
+
+            if(count>=10)
+            {
+                System.out.println("Danh sach da day.");
+                return;
+            }
+            count++;
+            for(int i=0;i<(10-count);i++)
+            {
+                itemOordered[count]=dvdList[i];
+                itemOordered[count].setCost(dvdList[i].cost);
+                itemOordered[count].setTitle(dvdList[i].title);
+                itemOordered[count].setCategory(dvdList[i].category);
+                itemOordered[count].setDirector(dvdList[i].director);
+                itemOordered[count].setLength(dvdList[i].length);
+                count++;
+            }
+
+        }
+
+        void addDigitalVideoDisc(List<DigitalVideoDisc> list)
+        {
+            DigitalVideoDisc [] dvdlist = list.toArray(new DigitalVideoDisc[0]);
+            int count = qtyOrdered();
+            for(int i=0;i<10;i++)
+            {
+                itemOordered[count]=dvdlist[i];
+                itemOordered[count].setCost(dvdlist[i].cost);
+                itemOordered[count].setTitle(dvdlist[i].title);
+                itemOordered[count].setCategory(dvdlist[i].category);
+                itemOordered[count].setDirector(dvdlist[i].director);
+                itemOordered[count].setLength(dvdlist[i].length);
+                count++;
+            }
+        }
+        float totalCost(){
+            int count=qtyOrdered();
             float sum=0;
             for(int i=0;i<count;i++)
             {
