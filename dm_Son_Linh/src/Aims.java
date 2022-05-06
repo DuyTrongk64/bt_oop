@@ -38,7 +38,7 @@ public class Aims {
         anOrder.addDigitalVideoDisc(d4);
         anOrder.addDigitalVideoDisc(d5);
          */
-        //anOrder.addDigitalVideoDisc(d1,d2,d3,d4,d5); // số lượng đối số tùy ý
+        anOrder.addDigitalVideoDisc(d1,d2,d3,d4,d5); // số lượng đối số tùy ý
         System.out.print ("Total Cost is: ");
         System.out.println (anOrder.totalCost());
     }

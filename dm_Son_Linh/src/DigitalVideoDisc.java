@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 public class DigitalVideoDisc {
@@ -75,6 +76,9 @@ public class DigitalVideoDisc {
     public static class  Order{
         public static final int MAX_NUMBERS_ORDERED = 10;
         private DigitalVideoDisc itemOordered[] = new DigitalVideoDisc[MAX_NUMBERS_ORDERED];
+        public static int nbOders = 0;
+        private Date dateOrdered;
+
 
         int qtyOrdered()
         {
@@ -91,7 +95,7 @@ public class DigitalVideoDisc {
         void addDigitalVideoDisc(DigitalVideoDisc disc)
         {
             int count=qtyOrdered();
-            if(count==10){
+            if(count==MAX_NUMBERS_ORDERED){
                 System.out.println("So Luong don hang da day.");
             }
             else {
@@ -104,14 +108,15 @@ public class DigitalVideoDisc {
                 count++;
             }
         }
-
+/*
         void addDigitalVideoDisc(DigitalVideoDisc [] dvdList)
         {
+            int length = dvdList.length;
             int count = qtyOrdered();
 
-            if(count>=10)
+            if(count+length>=MAX_NUMBERS_ORDERED)
             {
-                System.out.println("Danh sach da day.");
+                System.out.println("so phan tu them vao vuot qua so luong toi da.");
                 return;
             }
             count++;
@@ -127,14 +132,16 @@ public class DigitalVideoDisc {
             }
 
         }
-        /*
+
+ */
+
         //số lượng đối số tùy ý
         void addDigitalVideoDisc(DigitalVideoDisc... list) // tạo varargs
         {
 
             int count = qtyOrdered(); // đếm số phần tử trong mảng
             int length = list.length; // lấy số tham số nhập vào
-            if(count+length>=10) // nếu tổng số phần tử nhập vào và tham số > 10 => báo lỗi
+            if(count+length>=MAX_NUMBERS_ORDERED) // nếu tổng số phần tử nhập vào và tham số > 10 => báo lỗi
             {
                 System.out.println("do dai chuoi nhap vao vuot qua so luong toi da");
                 return;
@@ -153,9 +160,45 @@ public class DigitalVideoDisc {
                 }
             }
         }
-         */
+
         void addDigitalVideoDisc (DigitalVideoDisc dvd1, DigitalVideoDisc dvd2)
         {
+            int count = qtyOrdered();
+
+            if(count==MAX_NUMBERS_ORDERED)
+            {
+                System.out.println("so mat hang vao da day.");
+                System.out.println("khong the them"+dvd1.title+"va"+dvd2.title+".");
+                return;
+            }
+
+            else
+            {
+                itemOordered[count]=dvd1;
+                itemOordered[count].setCost(dvd1.cost);
+                itemOordered[count].setTitle(dvd1.title);
+                itemOordered[count].setCategory(dvd1.category);
+                itemOordered[count].setDirector(dvd1.director);
+                itemOordered[count].setLength(dvd1.length);
+                count++;
+                if(count==MAX_NUMBERS_ORDERED)
+                {
+                    System.out.println("so mat hang vao da day.");
+                    System.out.println("khong the them"+dvd2.title+".");
+                    return;
+                }
+
+                else
+                {
+                    itemOordered[count]=dvd2;
+                    itemOordered[count].setCost(dvd2.cost);
+                    itemOordered[count].setTitle(dvd2.title);
+                    itemOordered[count].setCategory(dvd2.category);
+                    itemOordered[count].setDirector(dvd2.director);
+                    itemOordered[count].setLength(dvd2.length);
+                   return;
+                }
+            }
 
         }
         float totalCost(){
@@ -168,6 +211,10 @@ public class DigitalVideoDisc {
             return sum;
         }
 
+        void print(DigitalVideoDisc... orderlist)
+        {
+
+        }
     }
 
 }
