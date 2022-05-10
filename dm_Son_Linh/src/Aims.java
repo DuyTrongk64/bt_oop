@@ -1,3 +1,7 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class Aims {
     public static  void main (String[] args)
     {
@@ -31,14 +35,15 @@ public class Aims {
         DigitalVideoDisc d3 = new DigitalVideoDisc("Spiderman","drama","Den Houser",100,90);
         DigitalVideoDisc d4 = new DigitalVideoDisc("Hulk","action","Joan Lapotar",120,60);
         DigitalVideoDisc d5 = new DigitalVideoDisc("Silent Hill","horor","Koon De",95,95);
-        /*
-        anOrder.addDigitalVideoDisc(d1);
-        anOrder.addDigitalVideoDisc(d2);
-        anOrder.addDigitalVideoDisc(d3);
-        anOrder.addDigitalVideoDisc(d4);
-        anOrder.addDigitalVideoDisc(d5);
-         */
-        anOrder.addDigitalVideoDisc(d1,d2,d3,d4,d5); // số lượng đối số tùy ý
+
+        DigitalVideoDisc[] oder = new DigitalVideoDisc[5];
+        oder[0]=d1;
+        oder[1]=d2;
+        oder[2]=d3;
+        oder[3]=d4;
+        oder[4]=d5;
+        anOrder.print(oder);
+        //anOrder.addDigitalVideoDisc(d1,d2,d3,d4,d5); // số lượng đối số tùy ý
         System.out.print ("Total Cost is: ");
         System.out.println (anOrder.totalCost());
     }

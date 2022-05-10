@@ -75,8 +75,9 @@ public class DigitalVideoDisc {
 
     public static class  Order{
         public static final int MAX_NUMBERS_ORDERED = 10;
+        public static final int MAX_LIMITTED_ORDERED = 5;
         private DigitalVideoDisc itemOordered[] = new DigitalVideoDisc[MAX_NUMBERS_ORDERED];
-        public static int nbOders = 0;
+        private static int nbOders = 0;
         private Date dateOrdered;
 
 
@@ -108,7 +109,7 @@ public class DigitalVideoDisc {
                 count++;
             }
         }
-/*
+
         void addDigitalVideoDisc(DigitalVideoDisc [] dvdList)
         {
             int length = dvdList.length;
@@ -133,8 +134,8 @@ public class DigitalVideoDisc {
 
         }
 
- */
 
+/*
         //số lượng đối số tùy ý
         void addDigitalVideoDisc(DigitalVideoDisc... list) // tạo varargs
         {
@@ -160,6 +161,8 @@ public class DigitalVideoDisc {
                 }
             }
         }
+
+ */
 
         void addDigitalVideoDisc (DigitalVideoDisc dvd1, DigitalVideoDisc dvd2)
         {
@@ -211,9 +214,39 @@ public class DigitalVideoDisc {
             return sum;
         }
 
-        void print(DigitalVideoDisc... orderlist)
+        public Order() {
+        }
+
+        public Order(Date dateOrdered) {
+            if(nbOders<5){
+                this.dateOrdered = dateOrdered;
+                nbOders++;
+            }
+            else{
+                System.out.println("số lượng đơn đặt hàng hiện tại vượt quá số lượng giới hạn");
+            }
+        }
+
+        void print(DigitalVideoDisc [] dvdList)
         {
 
+            int length = dvdList.length;
+            Date date = this.dateOrdered;
+            System.out.println("***********************Order***********************");
+            System.out.println("Date: "+date);
+            System.out.println("Ordered Items:");
+            for(int i=0;i<length;i++)
+            {
+                itemOordered[i]=dvdList[i];
+                System.out.println((i+1)+".DVD -"+itemOordered[i].title+"-"+itemOordered[i].category+"-"+itemOordered[i].director+"-"+itemOordered[i].length+": "+itemOordered[i].cost+"$");
+            }
+            float sum=0;
+            for(int i=0;i<length;i++)
+            {
+                sum+=itemOordered[i].cost;
+            }
+            System.out.println("Total cost:"+sum);
+            System.out.println("***************************************************");
         }
     }
 
