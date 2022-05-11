@@ -1,3 +1,7 @@
+package hust.soict.hedspi.test.disc;
+
+import hust.soict.hedspi.aims.disc.DigitalVideoDisc;
+
 public class TestPassingParameter {
     public static void main(String [] args) {
         // TODO Auto-generated method stub
@@ -18,7 +22,7 @@ public class TestPassingParameter {
 
      */
     // new swap
-        public static void swap(DigitalVideoDisc dvd1,DigitalVideoDisc dvd2)
+        public static void swap(DigitalVideoDisc dvd1, DigitalVideoDisc dvd2)
         {
             String tmp = dvd1.getTitle();
             dvd1.setTitle(dvd2.getTitle());

@@ -1,7 +1,7 @@
-import java.util.Arrays;
+package hust.soict.hedspi.aims.disc;
+
 import java.util.Date;
-import java.util.List;
-import java.util.Scanner;
+
 public class DigitalVideoDisc {
     private  String title;
     private  String category;
@@ -81,7 +81,7 @@ public class DigitalVideoDisc {
         private Date dateOrdered;
 
 
-        int qtyOrdered()
+        public int qtyOrdered() // đếm số DigitalVideoDisc trong đơn đặt hàng
         {
             int count =0;
             for(int i=0;i<10;i++)
@@ -89,11 +89,11 @@ public class DigitalVideoDisc {
                 if(itemOordered[i]!=null) count++;
                 else break;
             }
-            //System.out.println("So DigitalVideoDiscs trong đơn đặt hàng la : "+count);
+            System.out.println("So DigitalVideoDiscs trong đơn đặt hàng la : "+count);
             return count;
         }
 
-        void addDigitalVideoDisc(DigitalVideoDisc disc)
+        public void addDigitalVideoDisc(DigitalVideoDisc disc)
         {
             int count=qtyOrdered();
             if(count==MAX_NUMBERS_ORDERED){
@@ -110,7 +110,7 @@ public class DigitalVideoDisc {
             }
         }
 
-        void addDigitalVideoDisc(DigitalVideoDisc [] dvdList)
+        public void addDigitalVideoDisc(DigitalVideoDisc [] dvdList)
         {
             int length = dvdList.length;
             int count = qtyOrdered();
@@ -137,7 +137,7 @@ public class DigitalVideoDisc {
 
 /*
         //số lượng đối số tùy ý
-        void addDigitalVideoDisc(DigitalVideoDisc... list) // tạo varargs
+        public void addDigitalVideoDisc(hust.soict.hedspi.aims.disc.DigitalVideoDisc... list) // tạo varargs
         {
 
             int count = qtyOrdered(); // đếm số phần tử trong mảng
@@ -164,7 +164,7 @@ public class DigitalVideoDisc {
 
  */
 
-        void addDigitalVideoDisc (DigitalVideoDisc dvd1, DigitalVideoDisc dvd2)
+        public void addDigitalVideoDisc (DigitalVideoDisc dvd1, DigitalVideoDisc dvd2)
         {
             int count = qtyOrdered();
 
@@ -204,7 +204,7 @@ public class DigitalVideoDisc {
             }
 
         }
-        float totalCost(){
+        public float totalCost(){
             int count=qtyOrdered();
             float sum=0;
             for(int i=0;i<count;i++)
@@ -227,7 +227,7 @@ public class DigitalVideoDisc {
             }
         }
 
-        void print(DigitalVideoDisc [] dvdList)
+        public void print(DigitalVideoDisc [] dvdList)
         {
 
             int length = dvdList.length;
@@ -250,4 +250,23 @@ public class DigitalVideoDisc {
         }
     }
 
+    public boolean search(String title){
+        String [] result1 = title.split(" "); // tach title thanh chuoi cac xau
+        String [] result2 = this.getTitle().split(" ");
+        int length1=result1.length;
+        int lenhth2=result2.length;
+        for(int i=0;i<length1;i++)
+        {
+            for (i=0;i<lenhth2;i++)
+            {
+                if(result1[i].equals(result2[i])==true) continue;
+                else {
+                    System.out.println("false");
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
 }

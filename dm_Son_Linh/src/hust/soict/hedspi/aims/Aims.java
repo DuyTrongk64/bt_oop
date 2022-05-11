@@ -1,7 +1,10 @@
+package hust.soict.hedspi.aims;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import hust.soict.hedspi.aims.disc.DigitalVideoDisc;
 public class Aims {
     public static  void main (String[] args)
     {
@@ -9,20 +12,20 @@ public class Aims {
         DigitalVideoDisc.Order anOrder = new DigitalVideoDisc.Order();
         // Create a new dyd object and set the fields
         /*
-        DigitalVideoDisc dvd1 = new DigitalVideoDisc("The Lion King");
+        hust.soict.hedspi.aims.disc.DigitalVideoDisc dvd1 = new hust.soict.hedspi.aims.disc.DigitalVideoDisc("The Lion King");
         dvd1.setCategory ("Animation");
         dvd1.setCost (19.95f);
         dvd1.setDirector ("Roger Allers");
         dvd1.setLength (87);
         //add the dyd to the order
         anOrder.addDigitalVideoDisc(dvd1);
-        DigitalVideoDisc dvd2 = new DigitalVideoDisc("Star Wars");
+        hust.soict.hedspi.aims.disc.DigitalVideoDisc dvd2 = new hust.soict.hedspi.aims.disc.DigitalVideoDisc("Star Wars");
         dvd2.setCategory ("Science Fiction");
         dvd2.setCost (24.95f);
         dvd2. setDirector ("George Lucas");
         dvd2.setLength (124);
         anOrder.addDigitalVideoDisc(dvd2);
-        DigitalVideoDisc dvd3 = new DigitalVideoDisc("Aladdin");
+        hust.soict.hedspi.aims.disc.DigitalVideoDisc dvd3 = new hust.soict.hedspi.aims.disc.DigitalVideoDisc("Aladdin");
         dvd3.setCategory ("Animation");
         dvd3.setCost (18.99f);
         dvd3.setDirector ("John Musker");
@@ -38,13 +41,18 @@ public class Aims {
 
         DigitalVideoDisc[] oder = new DigitalVideoDisc[5];
         oder[0]=d1;
+        DigitalVideoDisc dvd1 = new DigitalVideoDisc("John Wick","Action","Hoang",123,50);
+        dvd1.search("john");
+        /*
         oder[1]=d2;
         oder[2]=d3;
         oder[3]=d4;
         oder[4]=d5;
         anOrder.print(oder);
+
+         */
         //anOrder.addDigitalVideoDisc(d1,d2,d3,d4,d5); // số lượng đối số tùy ý
-        System.out.print ("Total Cost is: ");
-        System.out.println (anOrder.totalCost());
+        //System.out.print ("Total Cost is: ");
+        //.out.println (anOrder.totalCost());
     }
 }
