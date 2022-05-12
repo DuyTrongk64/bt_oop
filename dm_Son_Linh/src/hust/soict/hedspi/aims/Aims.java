@@ -41,8 +41,7 @@ public class Aims {
 
         DigitalVideoDisc[] oder = new DigitalVideoDisc[5];
         oder[0]=d1;
-        DigitalVideoDisc dvd1 = new DigitalVideoDisc("John Wick","Action","Hoang",123,50);
-        dvd1.search("john");
+        DigitalVideoDisc dvd1 = new DigitalVideoDisc("John Wick noob deep ngu lon","Action","Hoang",123,50);
         /*
         oder[1]=d2;
         oder[2]=d3;
@@ -51,6 +50,8 @@ public class Aims {
         anOrder.print(oder);
 
          */
+        boolean check = dvd1.search("john deep lon");
+        System.out.println(check);
         //anOrder.addDigitalVideoDisc(d1,d2,d3,d4,d5); // số lượng đối số tùy ý
         //System.out.print ("Total Cost is: ");
         //.out.println (anOrder.totalCost());

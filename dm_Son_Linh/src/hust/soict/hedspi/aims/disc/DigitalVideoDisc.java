@@ -255,18 +255,20 @@ public class DigitalVideoDisc {
         String [] result2 = this.getTitle().split(" ");
         int length1=result1.length;
         int lenhth2=result2.length;
+        int count=0;
         for(int i=0;i<length1;i++)
         {
-            for (i=0;i<lenhth2;i++)
+            for (int j=0;j<lenhth2;j++)
             {
-                if(result1[i].equals(result2[i])==true) continue;
-                else {
-                    System.out.println("false");
-                    return false;
+                if(result1[i].equalsIgnoreCase(result2[j])==true) {
+                    count++;
+                    break;
                 }
+                else continue;
             }
         }
-
+        if(count==length1)
         return true;
+        else return false;
     }
 }
