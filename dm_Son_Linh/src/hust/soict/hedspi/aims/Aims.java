@@ -1,10 +1,6 @@
 package hust.soict.hedspi.aims;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-import hust.soict.hedspi.aims.disc.DigitalVideoDisc;
+import hust.soict.hedspi.aims.media.DigitalVideoDisc;
 public class Aims {
     public static  void main (String[] args)
     {
@@ -12,20 +8,20 @@ public class Aims {
         DigitalVideoDisc.Order anOrder = new DigitalVideoDisc.Order();
         // Create a new dyd object and set the fields
         /*
-        hust.soict.hedspi.aims.disc.DigitalVideoDisc dvd1 = new hust.soict.hedspi.aims.disc.DigitalVideoDisc("The Lion King");
+        hust.soict.hedspi.aims.media.DigitalVideoDisc dvd1 = new hust.soict.hedspi.aims.media.DigitalVideoDisc("The Lion King");
         dvd1.setCategory ("Animation");
         dvd1.setCost (19.95f);
         dvd1.setDirector ("Roger Allers");
         dvd1.setLength (87);
         //add the dyd to the order
         anOrder.addDigitalVideoDisc(dvd1);
-        hust.soict.hedspi.aims.disc.DigitalVideoDisc dvd2 = new hust.soict.hedspi.aims.disc.DigitalVideoDisc("Star Wars");
+        hust.soict.hedspi.aims.media.DigitalVideoDisc dvd2 = new hust.soict.hedspi.aims.media.DigitalVideoDisc("Star Wars");
         dvd2.setCategory ("Science Fiction");
         dvd2.setCost (24.95f);
         dvd2. setDirector ("George Lucas");
         dvd2.setLength (124);
         anOrder.addDigitalVideoDisc(dvd2);
-        hust.soict.hedspi.aims.disc.DigitalVideoDisc dvd3 = new hust.soict.hedspi.aims.disc.DigitalVideoDisc("Aladdin");
+        hust.soict.hedspi.aims.media.DigitalVideoDisc dvd3 = new hust.soict.hedspi.aims.media.DigitalVideoDisc("Aladdin");
         dvd3.setCategory ("Animation");
         dvd3.setCost (18.99f);
         dvd3.setDirector ("John Musker");
